@@ -16,7 +16,6 @@ Try it!! I am happy to hear your feedback or any kind of new features.
 - Global Error & Response Handler
 - Simple and Standard scaffolding
 - Based on Typescript Syntax
-- Simple & Global Enviroment Configuration
 - Request/Response Encryption & Decryption Implementation
 - Easily Add new feature
 - Integrated winston Logger
@@ -39,7 +38,6 @@ Try it!! I am happy to hear your feedback or any kind of new features.
 
 # [Start the application](https://blog.santoshshinde.com/skeleton-for-node-js-apps-written-in-typescript-444fa1695b30)
 
-![Workflow](https://github.com/santoshshinde2012/node-boilerplate/blob/master/wiki/environment.jpg?raw=true)
 
 ## Start The application in Development Mode
 
