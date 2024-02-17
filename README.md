@@ -1,6 +1,6 @@
-# [Node-Typescript-Boilerplate](https://blog.santoshshinde.com/skeleton-for-node-js-apps-written-in-typescript-444fa1695b30)  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=santoshshinde2012_node-boilerplate&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=santoshshinde2012_node-boilerplate)
+# [Node-Typescript-Knex-Boilerplate](https://blog.santoshshinde.com/skeleton-for-node-js-apps-written-in-typescript-444fa1695b30)  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=santoshshinde2012_node-ts-knex-boilerplate&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=santoshshinde2012_node-ts-knex-boilerplate)
 
-Skeleton for Node.js applications written in TypeScript
+Skeleton for Node.js and Knex applications written in TypeScript
 
 
 ## Purpose
@@ -25,6 +25,22 @@ Try it!! I am happy to hear your feedback or any kind of new features.
 - Swagger Documentation Support
 - Unit & Integration Test Cases
 
+## Knex Guide
+
+ - [guide](https://knexjs.org/guide/)
+
+
+```
+├── database 
+   ├── entities
+   ├── index.ts
+   ├── knexfile.ts
+   ├── migrations
+   └── seeds
+       └── development
+
+```
+ 
 ## Core NPM Module
 
 - [x] `express`, `@types/express`
@@ -35,6 +51,7 @@ Try it!! I am happy to hear your feedback or any kind of new features.
 - [x] `helmet`
 - [x] `http-status-codes`
 - [x] `winston`, `@types/winston`
+- [x] `knex`, `mysql`
 
 # [Start the application](https://blog.santoshshinde.com/skeleton-for-node-js-apps-written-in-typescript-444fa1695b30)
 
@@ -52,6 +69,19 @@ Try it!! I am happy to hear your feedback or any kind of new features.
 - Start the application `npm run start`
 - Before starting make sure to update your `.env` values for your refrence just check `.env.example`
 
+        ```
+        NODE_ENV=development
+        PORT=8080
+        APPLY_ENCRYPTION=false;
+        SECRET_KEY=sTJQgn5E8d8jMY15PhARwDrW4my6bLwE
+        MYSQL_HOST=127.0.0.1
+        MYSQL_PORT=3306
+        MYSQL_USER=user
+        MYSQL_DATABASE=knex_test
+        MYSQL_PASSWORD="knex_test@user"
+        MIN_CONNECTIONS=1
+        MAX_CONNECTIONS=5
+        ```
 
 ## Project Structure
 
@@ -59,10 +89,12 @@ Try it!! I am happy to hear your feedback or any kind of new features.
 | --------------------------------- | ----------- |
 | **wiki/**                         | You can add project documentation and insructions file here |
 | **src/**                          | Source files |
-| **src/abstractions**              | Abstarct classes and Interfaces  |
-| **src/components**                | REST API Components & Controllers  |
+| **src/abstractions/**              | Abstarct classes and Interfaces  |
+| **src/components/**                | REST API Components & Controllers  |
 | **src/lib**                       | Reusable utilises and library source code like a logger|
 | **src/middleware/**               | Express Middlewares like error handler feature |
+| **src/database/**                 | Database config file |
+| **src/config/**                   | Env Variable config |
 | **build/**                        | Compiled source files will be placed here |
 | **tests/**                        | Test cases will be placed here |
 | **tests/helpers/**                | Helpers for test cases will be placed here  |
@@ -86,10 +118,10 @@ The swagger documentation is available at the following url `${host}/docs`:
 ## Default System Health Status API
 
 - `${host}/api/system/info` - Return the system information in response
-- `${host}/system/time` - Return the current time in response
-- `${host}/system/usage` - Return the process and system memory usage in response
-- `${host}/system/process` -  Return the process details in response
-- `${host}/system/error` - Return the error generated object in response
+- `${host}/api/system/time` - Return the current time in response
+- `${host}/api/system/usage` - Return the process and system memory usage in response
+- `${host}/api/system/process` -  Return the process details in response
+- `${host}/api/system/error` - Return the error generated object in response
 
 ![Swagger API Documentation](https://github.com/santoshshinde2012/node-boilerplate/blob/master/wiki/swagger-api-documentation.jpg?raw=true)
 
