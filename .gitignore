@@ -15,3 +15,5 @@ logs/
 .env.prod
 .env.staging
 **/.DS_Store
+.env.local
+./wiki/instructions.md

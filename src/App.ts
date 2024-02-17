@@ -2,10 +2,13 @@ import cors from 'cors';
 import express from 'express';
 import http from 'http';
 import helmet from 'helmet';
+import 'dotenv/config';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../swagger.json';
 import registerRoutes from './routes';
 import addErrorHandler from './middleware/error-handler';
+import database from './database';
+import logger from './lib/logger';
 
 export default class App {
 	public express: express.Application;
@@ -15,6 +18,9 @@ export default class App {
 	public async init(): Promise<void> {
 		this.express = express();
 		this.httpServer = http.createServer(this.express);
+
+		// Assert database connection
+		await this.assertDatabaseConnection();
 
 		// add all global middleware like cors
 		this.middleware();
@@ -37,7 +43,7 @@ export default class App {
 	private routes(): void {
 		this.express.get('/', this.basePathRoute);
 		this.express.get('/web', this.parseRequestHeader, this.basePathRoute);
-		this.express.use('/', registerRoutes());
+		this.express.use('/api', registerRoutes());
 	}
 
 	/**
@@ -78,6 +84,16 @@ export default class App {
 		response: express.Response,
 	): void {
 		response.json({ message: 'base path' });
+	}
+
+	private async assertDatabaseConnection(): Promise<void> {
+		return database.raw('select 1+1 as result')
+			.catch((err) => {
+				logger.info('[Fatal] Failed to establish connection to database! Exiting...');
+				logger.error(err);
+				process.exit(1);
+			});
+
 	}
 
 	private setupSwaggerDocs(): void {
