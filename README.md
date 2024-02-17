@@ -69,6 +69,19 @@ Try it!! I am happy to hear your feedback or any kind of new features.
 - Start the application `npm run start`
 - Before starting make sure to update your `.env` values for your refrence just check `.env.example`
 
+        ```
+        NODE_ENV=development
+        PORT=8080
+        APPLY_ENCRYPTION=false;
+        SECRET_KEY=sTJQgn5E8d8jMY15PhARwDrW4my6bLwE
+        MYSQL_HOST=127.0.0.1
+        MYSQL_PORT=3306
+        MYSQL_USER=user
+        MYSQL_DATABASE=knex_test
+        MYSQL_PASSWORD="knex_test@user"
+        MIN_CONNECTIONS=1
+        MAX_CONNECTIONS=5
+        ```
 
 ## Project Structure
 

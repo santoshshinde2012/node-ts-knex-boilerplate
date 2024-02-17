@@ -47,3 +47,9 @@ jobs:
       run: npm run build --if-present
     - name: Test
       run: npm run test
+      env:
+        MYSQL_HOST: 127.0.0.1
+        MYSQL_PORT: 3306
+        MYSQL_USER: user
+        MYSQL_DATABASE: knex_test
+        MYSQL_PASSWORD: knex_test@user"
